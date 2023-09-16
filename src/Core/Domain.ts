@@ -1,14 +1,20 @@
-export type Task = {
-	name: string;
-	description: string;
-	status: "pending" | "doing" | "done" | "abandoned";
-};
+import { Data } from "effect";
 
-export const mkTask = (a: Task) => a;
+export type TaskStatus = "Pending" | "Doing" | "Done" | "Abandoned";
 
-export type Board = {
-	name: string;
-	tasks: Task[];
-};
+export type Task = Data.Case &
+	Readonly<{
+		name: string;
+		description: string;
+		status: TaskStatus;
+	}>;
 
-export const mkBoard = (a: Board) => a;
+export const MkTask = Data.case<Task>();
+
+export type Board = Data.Case &
+	Readonly<{
+		name: string;
+		tasks: Task[];
+	}>;
+
+export const MkBoard = Data.case<Board>();

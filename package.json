@@ -9,6 +9,7 @@
     "typescript": "^5.0.0"
   },
   "dependencies": {
+    "effect": "^2.0.0-next.34",
     "fp-ts": "^2.16.1",
     "fp-ts-contrib": "^0.1.29",
     "monocle-ts": "^2.3.13",
