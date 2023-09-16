@@ -1,3 +1,4 @@
+import { Cause } from "effect";
 import { Either } from "fp-ts/Either";
 import { Option } from "fp-ts/Option";
 import { Kind, URIS } from "fp-ts/HKT";
@@ -12,8 +13,8 @@ export interface TaskRepo<F extends URIS> {
 	getAll(): Kind<F, TaskEntity[]>;
 	get(key: TaskKey): Kind<F, Option<TaskEntity>>;
 	add(data: Task): Kind<F, TaskEntity>;
-	update(entity: TaskEntity): Kind<F, Either<any, TaskEntity>>;
-	delete(key: TaskKey): Kind<F, void>;
+	update(entity: TaskEntity): Kind<F, Either<Cause.NoSuchElementException, TaskEntity>>;
+	delete(key: TaskKey): Kind<F, Either<Cause.NoSuchElementException, void>>;
 }
 
 type BoardKey = Key<Board>;
@@ -23,6 +24,6 @@ export interface BoardRepo<F extends URIS> {
 	getAll(): Kind<F, BoardEntity[]>;
 	get(key: BoardKey): Kind<F, Option<BoardEntity>>;
 	add(data: Board): Kind<F, BoardEntity>;
-	update(entity: BoardEntity): Kind<F, Either<any, BoardEntity>>;
-	delete(key: BoardKey): Kind<F, void>;
+	update(entity: BoardEntity): Kind<F, Either<Cause.NoSuchElementException, BoardEntity>>;
+	delete(key: BoardKey): Kind<F, Either<Cause.NoSuchElementException, void>>;
 }
