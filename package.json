@@ -1,5 +1,5 @@
 {
-  "name": "fptodo",
+  "name": "fpts-todo",
   "module": "src/Main.ts",
   "type": "module",
   "devDependencies": {
@@ -10,6 +10,8 @@
   },
   "dependencies": {
     "fp-ts": "^2.16.1",
-    "fp-ts-contrib": "^0.1.29"
+    "fp-ts-contrib": "^0.1.29",
+    "monocle-ts": "^2.3.13",
+    "newtype-ts": "^0.3.5"
   }
 }
