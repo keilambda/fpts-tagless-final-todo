@@ -1,6 +1,7 @@
 import { Data } from "effect";
 
-export type TaskStatus = "Pending" | "Doing" | "Done" | "Abandoned";
+export const TaskStatusList = ["Pending", "Doing", "Done", "Abandoned"] as const;
+export type TaskStatus = (typeof TaskStatusList)[number];
 
 export type Task = Data.Case &
 	Readonly<{
