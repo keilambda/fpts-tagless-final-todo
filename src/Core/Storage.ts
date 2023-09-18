@@ -7,7 +7,7 @@ import { Board, Task } from "./Domain";
 import { Entity, Id } from "../Lib/Persistent";
 
 export type TaskEntity = Entity<Task>;
-export interface TaskRepo<F extends URIS> {
+export type TaskRepo<F extends URIS> = {
 	getAll(): Kind<F, TaskEntity[]>;
 	get(id: Id): Kind<F, Option<TaskEntity>>;
 	add(data: Task): Kind<F, TaskEntity>;
@@ -16,7 +16,7 @@ export interface TaskRepo<F extends URIS> {
 }
 
 export type BoardEntity = Entity<Board>;
-export interface BoardRepo<F extends URIS> {
+export type BoardRepo<F extends URIS> = {
 	getAll(): Kind<F, BoardEntity[]>;
 	get(id: Id): Kind<F, Option<BoardEntity>>;
 	add(data: Board): Kind<F, BoardEntity>;
