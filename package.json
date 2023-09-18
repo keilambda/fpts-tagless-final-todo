@@ -1,18 +1,22 @@
 {
-  "name": "fpts-todo",
-  "module": "src/Main.ts",
-  "type": "module",
-  "devDependencies": {
-    "bun-types": "latest"
-  },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  },
-  "dependencies": {
-    "effect": "^2.0.0-next.34",
-    "fp-ts": "^2.16.1",
-    "fp-ts-contrib": "^0.1.29",
-    "monocle-ts": "^2.3.13",
-    "newtype-ts": "^0.3.5"
-  }
+	"name": "fpts-todo",
+	"module": "src/Main.ts",
+	"type": "module",
+	"scripts": {
+		"fmt": "prettier --write 'src/**/*.ts'"
+	},
+	"devDependencies": {
+		"bun-types": "latest",
+		"prettier": "^3.0.3"
+	},
+	"peerDependencies": {
+		"typescript": "^5.0.0"
+	},
+	"dependencies": {
+		"effect": "^2.0.0-next.34",
+		"fp-ts": "^2.16.1",
+		"fp-ts-contrib": "^0.1.29",
+		"monocle-ts": "^2.3.13",
+		"newtype-ts": "^0.3.5"
+	}
 }
