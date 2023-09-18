@@ -10,10 +10,10 @@ export type TaskEntity = Entity<Task>;
 export type TaskRepo<F extends URIS> = {
 	getAll(): Kind<F, TaskEntity[]>;
 	get(id: Id): Kind<F, Option<TaskEntity>>;
-	add(data: Task): Kind<F, TaskEntity>;
+	add(data: Task): Kind<F, Option<TaskEntity>>;
 	update(entity: TaskEntity): Kind<F, Either<Cause.NoSuchElementException, TaskEntity>>;
 	delete(id: Id): Kind<F, Either<Cause.NoSuchElementException, void>>;
-}
+};
 
 export type BoardEntity = Entity<Board>;
 export type BoardRepo<F extends URIS> = {
@@ -22,4 +22,4 @@ export type BoardRepo<F extends URIS> = {
 	add(data: Board): Kind<F, BoardEntity>;
 	update(entity: BoardEntity): Kind<F, Either<Cause.NoSuchElementException, BoardEntity>>;
 	delete(id: Id): Kind<F, Either<Cause.NoSuchElementException, void>>;
-}
+};
