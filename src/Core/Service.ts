@@ -35,8 +35,7 @@ export const MkTaskService = <F extends URIS>(F: Functor1<F>) =>
 								Done: 0,
 								Abandoned: 0,
 							},
-							(acc, c) =>
-								pipe(acc, taskStatusNumL(c.entity.status).modify(increment)),
+							(acc, c) => pipe(acc, taskStatusNumL(c.entity.status).modify(increment)),
 						),
 					),
 				),
@@ -51,8 +50,7 @@ export const MkTaskService = <F extends URIS>(F: Functor1<F>) =>
 								Done: new Array(),
 								Abandoned: new Array(),
 							},
-							(acc, c) =>
-								pipe(acc, taskStatusTEL(c.entity.status).modify(A.append(c))),
+							(acc, c) => pipe(acc, taskStatusTEL(c.entity.status).modify(A.append(c))),
 						),
 					),
 				),
