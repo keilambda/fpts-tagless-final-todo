@@ -1,8 +1,9 @@
 import { Lens } from "monocle-ts";
-import * as A from "fp-ts/Array";
+
+import Array from "fp-ts/Array";
+import Reader from "fp-ts/Reader";
 import { Functor1 } from "fp-ts/Functor";
 import { Kind, URIS } from "fp-ts/HKT";
-import * as R from "fp-ts/Reader";
 import { flow, pipe, increment } from "fp-ts/function";
 
 import { TaskStatus } from "./Domain";
@@ -19,7 +20,7 @@ export type TaskService<F extends URIS> = TaskRepo<F> & {
 };
 
 export const MkTaskService = <F extends URIS>(F: Functor1<F>) =>
-	R.asks(
+	Reader.asks(
 		(repo: TaskRepo<F>): TaskService<F> => ({
 			...repo,
 			countStatus: (status) =>
@@ -28,7 +29,7 @@ export const MkTaskService = <F extends URIS>(F: Functor1<F>) =>
 				F.map(
 					repo.getAll(),
 					flow(
-						A.reduce(
+						Array.reduce(
 							{
 								Pending: 0,
 								Doing: 0,
@@ -43,14 +44,14 @@ export const MkTaskService = <F extends URIS>(F: Functor1<F>) =>
 				F.map(
 					repo.getAll(),
 					flow(
-						A.reduce(
+						Array.reduce(
 							{
-								Pending: new Array(),
-								Doing: new Array(),
-								Done: new Array(),
-								Abandoned: new Array(),
+								Pending: [] as TaskEntity[],
+								Doing: [] as TaskEntity[],
+								Done: [] as TaskEntity[],
+								Abandoned: [] as TaskEntity[],
 							},
-							(acc, c) => pipe(acc, taskStatusTEL(c.entity.status).modify(A.append(c))),
+							(acc, c) => pipe(acc, taskStatusTEL(c.entity.status).modify(Array.append(c))),
 						),
 					),
 				),
