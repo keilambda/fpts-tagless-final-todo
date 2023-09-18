@@ -7,7 +7,7 @@ import { Kind, URIS } from "fp-ts/HKT";
 import { flow, pipe, increment } from "fp-ts/function";
 
 import { TaskStatus } from "./Domain";
-import { BoardRepo, TaskEntity, TaskRepo } from "./Storage";
+import { BoardRepo, TaskEntity, TaskRepo } from "./Repository";
 
 type TaskStatusRecord<A> = { [S in TaskStatus]: A };
 const taskStatusNumL = Lens.fromProp<TaskStatusRecord<number>>();

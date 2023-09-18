@@ -1,6 +1,6 @@
 import { pgTable, integer, serial, text, varchar, pgEnum } from "drizzle-orm/pg-core";
 import { MkBoard, MkTask, TaskStatusList } from "src/Core/Domain";
-import { BoardEntity, TaskEntity } from "src/Core/Storage";
+import { BoardEntity, TaskEntity } from "src/Core/Repository";
 import { isoId } from "src/Lib/Persistent";
 
 export const boards = pgTable("boards", {

@@ -3,8 +3,8 @@ import { Either } from "fp-ts/Either";
 import { Option } from "fp-ts/Option";
 import { Kind, URIS } from "fp-ts/HKT";
 
-import { Board, Task } from "./Domain";
-import { Entity, Id } from "../Lib/Persistent";
+import { Board, Task } from "src/Core/Domain";
+import { Entity, Id } from "src/Lib/Persistent";
 
 export type TaskEntity = Entity<Task>;
 export type TaskRepo<F extends URIS> = {
