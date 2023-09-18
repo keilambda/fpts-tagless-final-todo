@@ -1,7 +1,9 @@
-import { Newtype } from "newtype-ts"
+import { Newtype, iso } from "newtype-ts";
 
-export type Key<A> = Newtype<{ readonly Key: unique symbol }, number>;
+export type Id = Newtype<{ readonly Id: unique symbol }, number>;
+export const isoId = iso<Id>();
+
 export type Entity<A> = {
-    key: Key<A>,
-    entity: A,
-}
+	id: Id;
+	entity: A;
+};
